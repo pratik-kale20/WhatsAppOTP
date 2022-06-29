@@ -10,6 +10,7 @@ url = "https://api.interakt.ai/v1/public/message/"
 def home():
     token = str(request.args['token'])
     mobile = str(request.args['mobile'])
+    visitorName = str(request.args['name'])
     otp = str(request.args['otp'])
     try: 
         payload = json.dumps({
@@ -18,9 +19,10 @@ def home():
         "callbackData": "Error message",
         "type": "Template",
         "template": {
-            "name": "verification",
+            "name": "verificationotp",
             "languageCode": "en",
             "bodyValues": [
+            visitorName,
             otp
             ]
         }
