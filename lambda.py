@@ -8,7 +8,6 @@ def lambda_handler(event,context):
     print(event)
     apikey = event['queryStringParameters']['api']
     mobile = event['queryStringParameters']['mobile']
-    visitorName = event['queryStringParameters']['name']
     otp = event['queryStringParameters']['otp']
     try: 
         payload = json.dumps({
@@ -20,7 +19,7 @@ def lambda_handler(event,context):
             "name": "verificationotp",
             "languageCode": "en",
             "bodyValues": [
-            visitorName,
+            mobile,
             otp
             ]
         }
